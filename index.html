@@ -11,10 +11,20 @@
   <body>
     <h1>Los colores de Van Gogh</h1>
     <h2>Cada año muestra los colores de las 10 obras más relevantes por cada año, ordenados por valor.</h2>
-    <div class="infovis"> 
-      <p>Aca parte importante</p>
-          <div id="info"></div>
-    </div>
+    <div id="toolbar" style="position:sticky;top:0;z-index:10;background:#fff;padding:8px;display:flex;gap:8px;border-bottom:1px solid #ddd">
+      <button id="btnValor">Ordenar por valor</button>
+      <button id="btnLum">Ordenar por luminosidad</button>
+      <button id="btnSat">Ordenar por saturación</button>
+      <!-- Botón para habilitar audio (necesario en móviles/iOS) -->
+    <button id="enable-audio" style="position:sticky;top:0;z-index:10;margin:8px;padding:6px 10px">
+      Activar sonido
+    </button>
+
+  </div>
+
+<!-- Contenedor donde se pintan las filas -->
+<div id="salida" style="padding:8px 0;"></div>
+
   <script type="module" src="./script.js"></script>
   </body>
   
