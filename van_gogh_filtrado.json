@@ -88,7 +88,8 @@
     "Year":1885,
     "Genre":"genre painting",
     "Style":"Realism",
-    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/the-potato-eaters-1885-1.jpg!Large.jpg"
+    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/the-potato-eaters-1885-1.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Still Life with Bible",
