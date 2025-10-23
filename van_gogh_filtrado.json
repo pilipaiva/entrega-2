@@ -187,6 +187,15 @@
     "Link":"https:\/\/uploads2.wikiart.org\/images\/vincent-van-gogh\/view-of-montmartre-1886.jpg!Large.jpg"
   },
   {
+    "Name":"Still Life with Apples, Meat and a Roll",
+    "Colors":"('#0A0A0D', '#F2A03D', '#D97C2B', '#BF4B21', '#731D1D')",
+    "Year":1886,
+    "Genre":"still life",
+    "Style":"Realism",
+    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/still-life-with-apples-meat-and-a-roll-1886.jpg!Large.jpg",
+    "Show": "True"
+  },
+  {
     "Name":"Still Life with Bloaters",
     "Colors":"('#F2C46D', '#D9A566', '#8C4A23', '#591F12', '#0D0D0D')",
     "Year":1886,
@@ -244,15 +253,7 @@
     "Style":"Post-Impressionism",
     "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/park-with-figures.jpg!Large.jpg"
   },
-  {
-    "Name":"Still Life with Apples, Meat and a Roll",
-    "Colors":"('#0A0A0D', '#F2A03D', '#D97C2B', '#BF4B21', '#731D1D')",
-    "Year":1886,
-    "Genre":"still life",
-    "Style":"Realism",
-    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/still-life-with-apples-meat-and-a-roll-1886.jpg!Large.jpg",
-    "Show": "True"
-  },
+
 
   
  
@@ -589,7 +590,8 @@
     "Year":1890,
     "Genre":"landscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/wheatfields-1890.jpg!Large.jpg"
+    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/wheatfields-1890.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Self Portrait with Bandaged Ear",
