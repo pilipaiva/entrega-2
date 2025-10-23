@@ -258,7 +258,7 @@
     "Year":1887,
     "Genre":"self-portrait",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/self-portrait-with-straw-hat-1887-1.jpg!Large.jpg"
+    "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/self-portrait-with-straw-hat-1887-1.jpg!Large.jpg",
   },
   {
     "Name":"Self-Portrait with Straw Hat",
@@ -266,7 +266,8 @@
     "Year":1887,
     "Genre":"self-portrait",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads0.wikiart.org\/00213\/images\/vincent-van-gogh\/antique-3840752.jpg!Large.jpg"
+    "Link":"https:\/\/uploads0.wikiart.org\/00213\/images\/vincent-van-gogh\/antique-3840752.jpg!Large.jpg", 
+    "Show": "True"
   },
   {
     "Name":"Suburbs of Paris",
@@ -340,7 +341,8 @@
     "Year":1888,
     "Genre":"flower painting",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads6.wikiart.org\/00161\/images\/vincent-van-gogh\/vincent-van-gogh-three-sunflowers-in-a-vase.Jpg!Large.Jpg"
+    "Link":"https:\/\/uploads6.wikiart.org\/00161\/images\/vincent-van-gogh\/vincent-van-gogh-three-sunflowers-in-a-vase.Jpg!Large.Jpg",
+    "Show": "True"
   },
   {
     "Name":"Vincent's Bedroom",
@@ -348,7 +350,8 @@
     "Year":1888,
     "Genre":"sketch and study",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/vincent-s-bedroom-1888.jpg!Large.jpg"
+    "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/vincent-s-bedroom-1888.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Café Terrace at Night (Place du Forum, Arles)",
@@ -380,7 +383,8 @@
     "Year":1888,
     "Genre":"cityscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/the-yellow-house-1888.jpg!Large.jpg"
+    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/the-yellow-house-1888.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"The Langlois Bridge at Arles",
@@ -422,7 +426,8 @@
     "Year":1889,
     "Genre":"cloudscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads4.wikiart.org\/00142\/images\/vincent-van-gogh\/the-starry-night.jpg!Large.jpg"
+    "Link":"https:\/\/uploads4.wikiart.org\/00142\/images\/vincent-van-gogh\/the-starry-night.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Irises",
@@ -522,7 +527,8 @@
     "Year":1890,
     "Genre":"portrait",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/portrait-of-doctor-gachet-1890.jpg!Large.jpg"
+    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/portrait-of-doctor-gachet-1890.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Wheatfield with Crows",
