@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 h1 {
-font-size: 40;
+font-size: 50;
 margin-left: 20px;
-font-family: "Caprasimo", serif;
-font-weight: 400;
+font-family: "Libre Franklin", sans-serif;
+font-weight: 800;
 }
 
 h2 {
 font-size: 25;
 margin-left: 20px;
-font-family: "Caprasimo", serif;
-font-weight: 500;
+font-family: "Libre Franklin", sans-serif;
+font-weight: 400;
 
 }
 
 button {
-font: "Arial"
+font-family: "Libre Franklin", sans-serif;
+font-weight: 600;
+background-color: blue;
 }

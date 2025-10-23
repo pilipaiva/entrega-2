@@ -64,7 +64,7 @@ function ColoresAno(ano) {
 }
 
 /* ===================== SVG helpers ===================== */
-function rect(color, x, y, w = 15, h = 30) {
+function rect(color, x, y, w = 16.5, h = 33) {
   const r = document.createElementNS(SVG_NS, "rect");
   // si tienes playColor(color) déjalo, si no, comenta la línea:
   // r.addEventListener('mouseenter', () => playColor(color));
@@ -192,7 +192,7 @@ function showAllContextTexts() {
 /* ===================== Enfoque visual de fila ===================== */
 function applyRowFocus(wrap, on = true) {
   if (on) {
-    wrap.style.background = '#f4f6f8';
+    wrap.style.background = '#e9ebecff';
     wrap.style.transform = 'scale(1.015)';
     wrap.style.transition = 'transform 120ms ease, background 120ms ease, box-shadow 120ms ease';
     wrap.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
@@ -276,7 +276,7 @@ function setActiveRow(wrap, year) {
     detail.innerHTML = '';
     const urls = getImportantImagesByYear(year);
     detail.appendChild(buildDetailPanelContent(year, contextoTexto, urls));
-    detail.style.background = '#f4f6f8';
+    detail.style.background = '#e9ebecff';
     detail.style.borderRadius = '8px';
     detail.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
     detail.style.display = 'block'; // ⬅️ mostrar panel
@@ -294,17 +294,17 @@ function setActiveRow(wrap, year) {
 
 /* ===================== Crear una fila ===================== */
 function crearFila(colores, etiqueta = "", ano) {
-  const chipW = 16.5, chipH = 33, padTop = 16, padRight = 0;
+  const chipW = 16.5, chipH = 33, padTop = 0, padRight = 0;
   const totalW = colores.length * chipW + padRight;
   const totalH = chipH + padTop;
 
   const wrap = document.createElement("div");
-  wrap.style.margin = "0px 8px";
+  wrap.style.margin = "8px 8px";
   wrap.style.overflowX = "auto";
   wrap.style.display = "flex";
   wrap.style.gap = "10px";
   wrap.style.alignItems = "center";
-  wrap.style.padding = "6px 8px";
+  wrap.style.padding = "8px 8px";
 
   const titulo = document.createElement("h3");
   titulo.textContent = ano;
@@ -335,7 +335,7 @@ function crearFila(colores, etiqueta = "", ano) {
   texto.dataset.year = String(ano);
   texto.textContent = contextoTexto;
   texto.style.margin = "0";
-  texto.style.fontSize = "14px";
+  texto.style.fontSize = "16px";
   texto.style.color = "#555";
 
   wrap.appendChild(titulo);
