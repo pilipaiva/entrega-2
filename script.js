@@ -165,12 +165,12 @@ function getImportantImagesByYear(year) {
 }
 
 /* ===================== Mostrar/ocultar textos de contexto ===================== */
-function hideAllContextExcept(year) {
+function hideAllContextTexts() {
   document.querySelectorAll('.context-text').forEach(p => {
-    const pYear = Number(p.dataset.year);
-    p.style.display = (pYear === Number(year)) ? 'block' : 'none';
+    p.style.display = 'none';
   });
 }
+
 function showAllContextTexts() {
   document.querySelectorAll('.context-text').forEach(p => (p.style.display = 'block'));
 }
@@ -265,8 +265,9 @@ function setActiveRow(wrap, year) {
     detail.style.display = 'block'; // ⬅️ mostrar panel
   }
 
-  // ocultar todos los contextos excepto el del año activo (inmediato)
-  hideAllContextExcept(year);
+  // ocultar TODAS las líneas de contexto en las filas (solo queda la del panel)
+  hideAllContextTexts();
+
 
   // guarda estado
   activeYear = year;
