@@ -4,13 +4,12 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 
 /* ===================== Datos de contexto ===================== */
 const contexto = [
-  [1884, ""],
   [1885, "Fallece su padre en marzo. Se interesa en las tallas de madera japonesas."],
   [1886, "Se muda a París con Theo, su hermano. Comienza una educación formal en artes, y conoce a los impresionistas."],
   [1887, "París: influencia japonesa y puntillismo; vistas de Montmartre."],
   [1888, "Se muda a Arlés, a la casa Amarilla, una residencia de artistas. Se enfoca en pintar naturaleza, y en diciembre se cortó la oreja"],
   [1889, "Lo internan en un asilo mental. Sufre de alucinaciones y un estado mental fluctuante."],
-  [1890, "Su salud aumenta drásticamente, hasta que cae en picada a mitad de año y se dispara en el pecho. A los dos días muere."]
+  [1890, "Su salud mejora, hasta que cae en picada a mitad de año y se dispara en el pecho. A los dos días muere."]
 ];
 const contextoMap = new Map(contexto);
 
@@ -101,8 +100,8 @@ function setupLayout() {
   if (!detail) {
     detail = document.createElement('div');
     detail.id = 'detailPanel';
-    detail.style.flex = '0 0 34%';
-    detail.style.maxWidth = '520px';
+    detail.style.flex = '0 0 36%';
+    detail.style.maxWidth = '600px';
     detail.style.minWidth = '280px';
     detail.style.padding = '8px';
     detail.style.borderRadius = '8px';
@@ -118,42 +117,57 @@ function setupLayout() {
 function buildDetailPanelContent(year, contextoTexto, urls) {
   const box = document.createElement('div');
 
+  // Título / contexto arriba
   const head = document.createElement('div');
   head.textContent = contextoTexto || '';
-  head.style.fontSize = '14px';
+  head.style.fontSize = '20px';
   head.style.color = '#333';
-  head.style.margin = '0 0 6px 0';
+  head.style.margin = '0 0 8px 0';
   head.style.lineHeight = '1.35';
   box.appendChild(head);
 
-  const grid = document.createElement('div');
-  grid.style.display = 'grid';
-  grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(120px, 1fr))';
-  grid.style.gap = '8px';
+  // === Masonry con columnas (no grid) ===
+  const wall = document.createElement('div');
+  // Opción A: número fijo de columnas
+  // wall.style.columnCount = 3;
+
+  // Opción B (recomendada): auto en base a ancho deseado de columna
+  wall.style.columnWidth = '220px';   // prueba 180–260px según gusto
+  wall.style.columnGap = '8px';
+  wall.style.width = '100%';
 
   if (urls.length === 0) {
     const empty = document.createElement('div');
     empty.style.fontSize = '13px';
     empty.style.color = '#666';
     empty.textContent = 'No hay imágenes marcadas como importantes para este año.';
-    grid.appendChild(empty);
+    wall.appendChild(empty);
   } else {
     urls.forEach(u => {
       const img = document.createElement('img');
       img.src = u;
       img.alt = `Obra ${year}`;
       img.loading = 'lazy';
+
+      // Importante para columnas:
+      img.style.display = 'block';
       img.style.width = '100%';
       img.style.height = 'auto';
+      img.style.margin = '0 0 8px 0';   // separación vertical entre imágenes
       img.style.borderRadius = '6px';
       img.style.boxShadow = '0 1px 3px rgba(0,0,0,0.15)';
-      grid.appendChild(img);
+      img.style.breakInside = 'avoid';  // evita cortes de imagen entre columnas
+      img.style.webkitColumnBreakInside = 'avoid';
+      img.style.pageBreakInside = 'avoid';
+
+      wall.appendChild(img);
     });
   }
 
-  box.appendChild(grid);
+  box.appendChild(wall);
   return box;
 }
+
 
 /* ===================== Imágenes importantes por año ===================== */
 function getImportantImagesByYear(year) {
@@ -191,7 +205,7 @@ function applyRowFocus(wrap, on = true) {
 
 /* ===================== Sonidos por año ===================== */
 const ROW_SOUNDS = {
-  1884: new Audio('./1884.mp3'),
+
   1885: new Audio('./1885.mp3'),
   1886: new Audio('./1886.mp3'),
   1887: new Audio('./1887.mp3'),
@@ -200,6 +214,8 @@ const ROW_SOUNDS = {
   1890: new Audio('./1890.mp3')
 };
 Object.values(ROW_SOUNDS).forEach(a => a && (a.volume = 0.35));
+ROW_SOUNDS[1888].volume = 1.0; // o 1.0 para máximo volumen
+
 
 /* ===================== Estado global de selección ===================== */
 let activeYear = null;
@@ -252,7 +268,8 @@ function setActiveRow(wrap, year) {
 
   // foco visual + sonido
   applyRowFocus(wrap, true);
-  if (sound) { try { sound.currentTime = 0; sound.play().catch(()=>{}); } catch {} }
+  if (sound) { try { sound.currentTime = 0; sound.play().catch(()=>{}); } catch {} 
+}
 
   // panel derecho visible con imágenes + contexto arriba
   if (detail) {
@@ -277,7 +294,7 @@ function setActiveRow(wrap, year) {
 
 /* ===================== Crear una fila ===================== */
 function crearFila(colores, etiqueta = "", ano) {
-  const chipW = 15, chipH = 30, padTop = 16, padRight = 0;
+  const chipW = 16.5, chipH = 33, padTop = 16, padRight = 0;
   const totalW = colores.length * chipW + padRight;
   const totalH = chipH + padTop;
 
@@ -403,7 +420,7 @@ function renderAniosCon(ordenador = null) {
 
   rowsCol.innerHTML = '';
 
-  const anios = [1884, 1885, 1886, 1887, 1888, 1889, 1890];
+  const anios = [1885, 1886, 1887, 1888, 1889, 1890];
   anios.forEach(y => {
     const base = ColoresAno(y);
     const cols = ordenador ? ordenador(base) : base;
