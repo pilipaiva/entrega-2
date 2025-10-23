@@ -244,12 +244,13 @@
     "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/park-with-figures.jpg!Large.jpg"
   },
   {
-    "Name":"Self-Portrait",
-    "Colors":"('#D9C484', '#736243', '#D9BF8F', '#402F1B', '#D9BC9A')",
+    "Name":"Still Life with Apples, Meat and a Roll",
+    "Colors":"('#0A0A0D', '#F2A03D', '#D97C2B', '#BF4B21', '#731D1D')",
     "Year":1886,
-    "Genre":"self-portrait",
+    "Genre":"still life",
     "Style":"Realism",
-    "Link":"https:\/\/uploads8.wikiart.org\/images\/vincent-van-gogh\/self-portrait-1886-1.jpg!Large.jpg"
+    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/still-life-with-apples-meat-and-a-roll-1886.jpg!Large.jpg",
+    "Show": "True"
   },
 
   
