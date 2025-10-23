@@ -552,12 +552,13 @@
     "Show": "True"
   },
   {
-    "Name":"Tree roots",
-    "Colors":"('#416CA6', '#5C8C3A', '#F2DB94', '#BF814B', '#733620')",
+    "Name":"Old Man in Sorrow (On the Threshold of Eternity)",
+    "Colors":"('#4B58A6', '#BF8136', '#F2CDA0', '#A66329', '#A6341B')",
     "Year":1890,
-    "Genre":"landscape",
+    "Genre":"portrait",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/tree-roots-1890.jpg!Large.jpg"
+    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/old-man-in-sorrow-on-the-threshold-of-eternity-1890.jpg!Large.jpg",
+    "Show" : "True"
   },
   {
     "Name":"Landscape with the Chateau of Auvers at Sunset",
