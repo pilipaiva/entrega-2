@@ -117,12 +117,13 @@
     "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/the-parsonage-garden-at-nuenen-in-the-snow-1885-1.jpg!Large.jpg"
   },
   {
-    "Name":"Peasant Woman, Sitting by the Fire",
-    "Colors":"('#D7D9CC', '#8C8C81', '#BFBEB4', '#262014', '#59544A')",
+    "Name":"Skull with Burning Cigarette",
+    "Colors":"('#F2CF66', '#A6813C', '#D9AA55', '#735B2F', '#261717')",
     "Year":1885,
-    "Genre":"sketch and study",
+    "Genre":"vanitas",
     "Style":"Realism",
-    "Link":"https:\/\/uploads8.wikiart.org\/images\/vincent-van-gogh\/peasant-woman-sitting-by-the-fire-1885.jpg!Large.jpg"
+    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/skull-with-burning-cigarette-1885.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Peasant Woman Peeling Potatoes",
@@ -130,8 +131,7 @@
     "Year":1885,
     "Genre":"genre painting",
     "Style":"Realism",
-    "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/peasant-woman-peeling-potatoes-1885.jpg!Large.jpg",
-    "Show": "True"
+    "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/peasant-woman-peeling-potatoes-1885.jpg!Large.jpg"
   },
   {
     "Name":"Head of a Peasant Woman",
@@ -244,16 +244,15 @@
     "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/park-with-figures.jpg!Large.jpg"
   },
   {
-    "Name":"Skull with Burning Cigarette",
-    "Colors":"('#F2CF66', '#A6813C', '#D9AA55', '#735B2F', '#261717')",
-    "Year":1885,
-    "Genre":"vanitas",
+    "Name":"Self-Portrait",
+    "Colors":"('#D9C484', '#736243', '#D9BF8F', '#402F1B', '#D9BC9A')",
+    "Year":1886,
+    "Genre":"self-portrait",
     "Style":"Realism",
-    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/skull-with-burning-cigarette-1885.jpg!Large.jpg",
-    "Show": "True"
+    "Link":"https:\/\/uploads8.wikiart.org\/images\/vincent-van-gogh\/self-portrait-1886-1.jpg!Large.jpg"
   },
 
-
+  
  
   {
     "Name":"Self-Portrait with Straw Hat",
