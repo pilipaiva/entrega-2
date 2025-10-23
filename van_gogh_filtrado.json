@@ -281,12 +281,13 @@
     "Link":"https:\/\/uploads8.wikiart.org\/images\/vincent-van-gogh\/suburbs-of-paris-1887.jpg"
   },
   {
-    "Name":"Pianist",
-    "Colors":"('#142619', '#697363', '#898C6D', '#D9CBA3', '#D9CEB0')",
+    "Name":"Still Life with Apples, Pears, Lemons and Grapes",
+    "Colors":"('#F2BF27', '#F2A516', '#F27405', '#592B02', '#F25C05')",
     "Year":1887,
-    "Genre":"sketch and study",
+    "Genre":"still life",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/pianist-1887.jpg!Large.jpg"
+    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/still-life-with-apples-pears-lemons-and-grapes-1887.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Moored Boats",
@@ -350,13 +351,13 @@
     "Show": "True"
   },
   {
-    "Name":"Vincent's Bedroom",
-    "Colors":"('#595138', '#261F11', '#A6977B', '#D9C8A9', '#F2E1C2')",
+    "Name":"Vincent's Bedroom in Arles",
+    "Colors":"('#A2A633', '#D98723', '#D97925', '#A66844', '#A61F12')",
     "Year":1888,
-    "Genre":"sketch and study",
+    "Genre":"interior",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/vincent-s-bedroom-1888.jpg!Large.jpg",
-    "Show": "True"
+    "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/vincent-s-bedroom-in-arles-1888.jpg!Large.jpg",
+    "Show" : "True"
   },
   {
     "Name":"Café Terrace at Night (Place du Forum, Arles)",
@@ -364,7 +365,8 @@
     "Year":1888,
     "Genre":"cityscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads2.wikiart.org\/images\/vincent-van-gogh\/cafe-terrace-place-du-forum-arles-1888(1).jpg!Large.jpg"
+    "Link":"https:\/\/uploads2.wikiart.org\/images\/vincent-van-gogh\/cafe-terrace-place-du-forum-arles-1888(1).jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"The Night Cafe",
@@ -589,11 +591,12 @@
     "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/wheatfields-1890.jpg!Large.jpg"
   },
   {
-    "Name":"Houses in Auvers",
-    "Colors":"('#365902', '#90D923', '#78A614', '#D9BE6C', '#730202')",
-    "Year":1890,
-    "Genre":"landscape",
+    "Name":"Self Portrait with Bandaged Ear",
+    "Colors":"('#5B74A6', '#4F7358', '#D5D973', '#BF8049', '#D93425')",
+    "Year":1889,
+    "Genre":"self-portrait",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/houses-in-auvers-1890.jpg!Large.jpg"
+    "Link":"https:\/\/uploads6.wikiart.org\/images\/vincent-van-gogh\/self-portrait-with-bandaged-ear-1889.jpg!Large.jpg",
+    "Show": "True"
   }
 ]
