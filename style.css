@@ -15,7 +15,23 @@ font-weight: 400;
 }
 
 button {
+font-size: 15px;  
 font-family: "Libre Franklin", sans-serif;
 font-weight: 600;
-background-color: blue;
+background-color: #e9ebecff;
+border: none;
+border-radius: 6px;          /* esquinas redondeadas */
+padding: 8px 14px; 
+cursor: pointer;             /* cursor tipo “mano” */
+}
+
+button:hover {
+  background-color: rgb(190, 194, 195);   /* color más claro */
+  transform: scale(1.05);      /* leve agrandado */
+}
+
+/* efecto cuando haces clic */
+button:active {
+  transform: scale(0.97);
+  background-color: rgb(146, 149, 150); 
 }

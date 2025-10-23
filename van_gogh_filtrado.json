@@ -283,13 +283,12 @@
     "Link":"https:\/\/uploads8.wikiart.org\/images\/vincent-van-gogh\/suburbs-of-paris-1887.jpg"
   },
   {
-    "Name":"Still Life with Apples, Pears, Lemons and Grapes",
-    "Colors":"('#F2BF27', '#F2A516', '#F27405', '#592B02', '#F25C05')",
+    "Name":"Pianist",
+    "Colors":"('#142619', '#697363', '#898C6D', '#D9CBA3', '#D9CEB0')",
     "Year":1887,
-    "Genre":"still life",
+    "Genre":"sketch and study",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/still-life-with-apples-pears-lemons-and-grapes-1887.jpg!Large.jpg",
-    "Show": "True"
+    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/pianist-1887.jpg!Large.jpg"
   },
   {
     "Name":"Moored Boats",
@@ -353,13 +352,13 @@
     "Show": "True"
   },
   {
-    "Name":"Vincent's Bedroom in Arles",
-    "Colors":"('#A2A633', '#D98723', '#D97925', '#A66844', '#A61F12')",
+    "Name":"Vincent's Bedroom",
+    "Colors":"('#595138', '#261F11', '#A6977B', '#D9C8A9', '#F2E1C2')",
     "Year":1888,
-    "Genre":"interior",
+    "Genre":"sketch and study",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/vincent-s-bedroom-in-arles-1888.jpg!Large.jpg",
-    "Show" : "True"
+    "Link":"https:\/\/uploads1.wikiart.org\/images\/vincent-van-gogh\/vincent-s-bedroom-1888.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Café Terrace at Night (Place du Forum, Arles)",
@@ -367,8 +366,7 @@
     "Year":1888,
     "Genre":"cityscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads2.wikiart.org\/images\/vincent-van-gogh\/cafe-terrace-place-du-forum-arles-1888(1).jpg!Large.jpg",
-    "Show": "True"
+    "Link":"https:\/\/uploads2.wikiart.org\/images\/vincent-van-gogh\/cafe-terrace-place-du-forum-arles-1888(1).jpg!Large.jpg"
   },
   {
     "Name":"The Night Cafe",
@@ -552,13 +550,12 @@
     "Show": "True"
   },
   {
-    "Name":"Old Man in Sorrow (On the Threshold of Eternity)",
-    "Colors":"('#4B58A6', '#BF8136', '#F2CDA0', '#A66329', '#A6341B')",
+    "Name":"Tree roots",
+    "Colors":"('#416CA6', '#5C8C3A', '#F2DB94', '#BF814B', '#733620')",
     "Year":1890,
-    "Genre":"portrait",
+    "Genre":"landscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/old-man-in-sorrow-on-the-threshold-of-eternity-1890.jpg!Large.jpg",
-    "Show" : "True"
+    "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/tree-roots-1890.jpg!Large.jpg"
   },
   {
     "Name":"Landscape with the Chateau of Auvers at Sunset",
@@ -590,16 +587,24 @@
     "Year":1890,
     "Genre":"landscape",
     "Style":"Post-Impressionism",
-    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/wheatfields-1890.jpg!Large.jpg",
-    "Show": "True"
+    "Link":"https:\/\/uploads4.wikiart.org\/images\/vincent-van-gogh\/wheatfields-1890.jpg!Large.jpg"
   },
   {
+<<<<<<< HEAD
     "Name":"Portrait of Adeline Ravoux",
     "Colors":"('#2C592A', '#7EA656', '#F2B749', '#BF9A54', '#0D0D0D')",
     "Year":1890,
     "Genre":"portrait",
     "Style":"Post-Impressionism",
     "Link":"https:\/\/uploads3.wikiart.org\/images\/vincent-van-gogh\/portrait-of-adeline-ravoux-1890-2.jpg!Large.jpg"
+=======
+    "Name":"Houses in Auvers",
+    "Colors":"('#365902', '#90D923', '#78A614', '#D9BE6C', '#730202')",
+    "Year":1890,
+    "Genre":"landscape",
+    "Style":"Post-Impressionism",
+    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/houses-in-auvers-1890.jpg!Large.jpg"
+>>>>>>> 4c901c4 (test)
   }
 
 ]

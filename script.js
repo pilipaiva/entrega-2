@@ -181,13 +181,24 @@ function getImportantImagesByYear(year) {
 /* ===================== Mostrar/ocultar textos de contexto ===================== */
 function hideAllContextTexts() {
   document.querySelectorAll('.context-text').forEach(p => {
-    p.style.display = 'none';
+    // Si no la teníamos guardada aún, la medimos una vez
+    const h = Number(p.dataset.h) || p.offsetHeight || 0;
+    p.dataset.h = h;
+    // Oculta visualmente pero conserva el espacio
+    p.style.height = h + 'px';
+    p.style.visibility = 'hidden';
+    p.style.pointerEvents = 'none';
   });
 }
 
 function showAllContextTexts() {
-  document.querySelectorAll('.context-text').forEach(p => (p.style.display = 'block'));
+  document.querySelectorAll('.context-text').forEach(p => {
+    p.style.visibility = 'visible';
+    p.style.pointerEvents = 'auto';
+    p.style.height = 'auto'; // vuelve a layout natural
+  });
 }
+
 
 /* ===================== Enfoque visual de fila ===================== */
 function applyRowFocus(wrap, on = true) {
@@ -341,6 +352,11 @@ function crearFila(colores, etiqueta = "", ano) {
   wrap.appendChild(titulo);
   wrap.appendChild(svg);
   wrap.appendChild(texto);
+  // Guarda la altura original del párrafo para poder reservar el espacio
+  requestAnimationFrame(() => {
+    texto.dataset.h = texto.offsetHeight; // px
+  });
+
 
   // Eventos: activar al entrar, programar limpieza al salir si el mouse NO va al panel
   wrap.addEventListener('mouseenter', () => setActiveRow(wrap, ano));
