@@ -97,7 +97,8 @@
     "Year":1885,
     "Genre":"still life",
     "Style":"Realism",
-    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/still-life-with-bible.jpg!Large.jpg"
+    "Link":"https:\/\/uploads0.wikiart.org\/images\/vincent-van-gogh\/still-life-with-bible.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"The Old Cemetery Tower at Nuenen in the Snow",
@@ -129,7 +130,8 @@
     "Year":1885,
     "Genre":"genre painting",
     "Style":"Realism",
-    "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/peasant-woman-peeling-potatoes-1885.jpg!Large.jpg"
+    "Link":"https:\/\/uploads5.wikiart.org\/images\/vincent-van-gogh\/peasant-woman-peeling-potatoes-1885.jpg!Large.jpg",
+    "Show": "True"
   },
   {
     "Name":"Head of a Peasant Woman",
