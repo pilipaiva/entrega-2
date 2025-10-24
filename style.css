@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 500;
+  color: #222;
+}
 h1 {
 font-size: 50;
 margin-left: 20px;
@@ -34,4 +40,13 @@ button:hover {
 button:active {
   transform: scale(0.97);
   background-color: rgb(146, 149, 150); 
+}
+/* === Estado activo de los botones === */
+button.active {
+  background-color: rgb(146, 149, 150); /* mismo tono que el click */
+  transform: scale(0.97);
+  color: white; /* opcional */
+}
+#toolbar {
+  margin-left: 20px;
 }

@@ -4,8 +4,8 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 
 /* ===================== Datos de contexto ===================== */
 const contexto = [
-  [1885, "Fallece su padre en marzo. Se interesa en las tallas de madera japonesas."],
-  [1886, "Se muda a París con Theo, su hermano. Comienza una educación formal en artes, y conoce a los impresionistas."],
+  [1885, "Fallece su padre en marzo. Pinta su primer gran obra, \"Los Comedores de Papas\"."],
+  [1886, "Se muda a París con Theo, su hermano. Comienza una educación formal en artes, pero la deja luego de un par de semanas. Conoce a los impresionistas."],
   [1887, "París: influencia japonesa y puntillismo; vistas de Montmartre."],
   [1888, "Se muda a Arlés, a la casa Amarilla, una residencia de artistas. Se enfoca en pintar naturaleza, y en diciembre se cortó la oreja"],
   [1889, "Lo internan en un asilo mental. Sufre de alucinaciones y un estado mental fluctuante."],
@@ -121,7 +121,7 @@ function buildDetailPanelContent(year, contextoTexto, urls) {
   const head = document.createElement('div');
   head.textContent = contextoTexto || '';
   head.style.fontSize = '20px';
-  head.style.color = '#333';
+  head.style.color = '#222s';
   head.style.margin = '0 0 8px 0';
   head.style.lineHeight = '1.35';
   box.appendChild(head);
@@ -139,7 +139,7 @@ function buildDetailPanelContent(year, contextoTexto, urls) {
   if (urls.length === 0) {
     const empty = document.createElement('div');
     empty.style.fontSize = '13px';
-    empty.style.color = '#666';
+    empty.style.color = '#222';
     empty.textContent = 'No hay imágenes marcadas como importantes para este año.';
     wall.appendChild(empty);
   } else {
@@ -461,12 +461,30 @@ function renderAniosCon(ordenador = null) {
 /* ===================== Enganche inicial y botones ===================== */
 renderAniosCon();
 
-document.getElementById('btnValor')?.addEventListener('click', () => {
+// === Botones con estado "activo" persistente ===
+const buttons = [
+  document.getElementById('btnValor'),
+  document.getElementById('btnLum'),
+  document.getElementById('btnSat')
+];
+
+function setActiveButton(activeBtn) {
+  buttons.forEach(btn => {
+    if (btn === activeBtn) btn.classList.add('active');
+    else btn.classList.remove('active');
+  });
+}
+
+buttons[0]?.addEventListener('click', () => {
   renderAniosCon(ordenarPorColor_RYB);
+  setActiveButton(buttons[0]);
 });
-document.getElementById('btnLum')?.addEventListener('click', () => {
+buttons[1]?.addEventListener('click', () => {
   renderAniosCon(ordenarPorLuminosidad);
+  setActiveButton(buttons[1]);
 });
-document.getElementById('btnSat')?.addEventListener('click', () => {
+buttons[2]?.addEventListener('click', () => {
   renderAniosCon(ordenarPorSaturacion);
+  setActiveButton(buttons[2]);
 });
+
