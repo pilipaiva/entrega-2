@@ -1,4 +1,4 @@
-import data from "van_gogh_filtrado.json" assert { type: "json" };
+import data from "./van_gogh_filtrado.json" assert { type: "json" };
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
