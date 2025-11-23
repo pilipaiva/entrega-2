@@ -1,4 +1,14 @@
-import data from "./van_gogh_filtrado.json" assert { type: "json" };
+// ==========================================
+//   CARGA DEL JSON SIN IMPORT (USANDO FETCH)
+// ==========================================
+let data = [];
+
+fetch("./van_gogh_filtrado.json")
+  .then(res => res.json())
+  .then(json => {
+    data = json;
+    renderAniosCon(); // ⬅️ SE RENDERIZA SOLO CUANDO EL JSON YA ESTÁ CARGADO
+  });
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
@@ -66,8 +76,6 @@ function ColoresAno(ano) {
 /* ===================== SVG helpers ===================== */
 function rect(color, x, y, w = 16.5, h = 33) {
   const r = document.createElementNS(SVG_NS, "rect");
-  // si tienes playColor(color) déjalo, si no, comenta la línea:
-  // r.addEventListener('mouseenter', () => playColor(color));
   r.setAttribute("x", x);
   r.setAttribute("y", y);
   r.setAttribute("width", w);
@@ -77,12 +85,11 @@ function rect(color, x, y, w = 16.5, h = 33) {
   return r;
 }
 
-/* ===================== Layout: columna filas + panel derecho global ===================== */
+/* ===================== Layout ===================== */
 function setupLayout() {
   const salida = document.getElementById('salida');
   if (!salida) return null;
 
-  // salida -> 2 columnas
   salida.style.display = 'flex';
   salida.style.gap = '16px';
   salida.style.alignItems = 'flex-start';
@@ -106,41 +113,33 @@ function setupLayout() {
     detail.style.padding = '8px';
     detail.style.borderRadius = '8px';
     detail.style.background = 'transparent';
-    detail.style.display = 'none'; // ⬅️ oculto por defecto
+    detail.style.display = 'none';
     salida.appendChild(detail);
   }
 
   return { rowsCol, detail };
 }
 
-/* ===================== Panel derecho (contenido) ===================== */
+/* ===================== Panel derecho ===================== */
 function buildDetailPanelContent(year, contextoTexto, urls) {
   const box = document.createElement('div');
 
-  // Título / contexto arriba
   const head = document.createElement('div');
   head.textContent = contextoTexto || '';
   head.style.fontSize = '20px';
-  head.style.color = '#222s';
-  head.style.margin = '0 0 8px 0';
+  head.style.margin = '0 0 8px';
   head.style.lineHeight = '1.35';
   box.appendChild(head);
 
-  // === Masonry con columnas (no grid) ===
   const wall = document.createElement('div');
-  // Opción A: número fijo de columnas
-  // wall.style.columnCount = 3;
-
-  // Opción B (recomendada): auto en base a ancho deseado de columna
-  wall.style.columnWidth = '220px';   // prueba 180–260px según gusto
+  wall.style.columnWidth = '220px';
   wall.style.columnGap = '8px';
   wall.style.width = '100%';
 
   if (urls.length === 0) {
     const empty = document.createElement('div');
+    empty.textContent = 'No hay imágenes importantes para este año.';
     empty.style.fontSize = '13px';
-    empty.style.color = '#222';
-    empty.textContent = 'No hay imágenes marcadas como importantes para este año.';
     wall.appendChild(empty);
   } else {
     urls.forEach(u => {
@@ -148,18 +147,12 @@ function buildDetailPanelContent(year, contextoTexto, urls) {
       img.src = u;
       img.alt = `Obra ${year}`;
       img.loading = 'lazy';
-
-      // Importante para columnas:
       img.style.display = 'block';
       img.style.width = '100%';
-      img.style.height = 'auto';
-      img.style.margin = '0 0 8px 0';   // separación vertical entre imágenes
+      img.style.marginBottom = '8px';
       img.style.borderRadius = '6px';
       img.style.boxShadow = '0 1px 3px rgba(0,0,0,0.15)';
-      img.style.breakInside = 'avoid';  // evita cortes de imagen entre columnas
-      img.style.webkitColumnBreakInside = 'avoid';
-      img.style.pageBreakInside = 'avoid';
-
+      img.style.breakInside = 'avoid';
       wall.appendChild(img);
     });
   }
@@ -168,23 +161,19 @@ function buildDetailPanelContent(year, contextoTexto, urls) {
   return box;
 }
 
-
-/* ===================== Imágenes importantes por año ===================== */
+/* ===================== Imágenes importantes ===================== */
 function getImportantImagesByYear(year) {
-  const y = Number(year);
   return data
-    .filter(d => Number(d.Year) === y && (d.Show === true || d.Show === "True" || d.Show === "true"))
+    .filter(d => Number(d.Year) === Number(year) && (d.Show === true || d.Show === "True" || d.Show === "true"))
     .map(d => d.Link)
     .filter(Boolean);
 }
 
-/* ===================== Mostrar/ocultar textos de contexto ===================== */
+/* ===================== Contexto en filas ===================== */
 function hideAllContextTexts() {
   document.querySelectorAll('.context-text').forEach(p => {
-    // Si no la teníamos guardada aún, la medimos una vez
     const h = Number(p.dataset.h) || p.offsetHeight || 0;
     p.dataset.h = h;
-    // Oculta visualmente pero conserva el espacio
     p.style.height = h + 'px';
     p.style.visibility = 'hidden';
     p.style.pointerEvents = 'none';
@@ -195,17 +184,16 @@ function showAllContextTexts() {
   document.querySelectorAll('.context-text').forEach(p => {
     p.style.visibility = 'visible';
     p.style.pointerEvents = 'auto';
-    p.style.height = 'auto'; // vuelve a layout natural
+    p.style.height = 'auto';
   });
 }
 
-
-/* ===================== Enfoque visual de fila ===================== */
+/* ===================== Focos visuales ===================== */
 function applyRowFocus(wrap, on = true) {
   if (on) {
     wrap.style.background = '#e9ebecff';
     wrap.style.transform = 'scale(1.015)';
-    wrap.style.transition = 'transform 120ms ease, background 120ms ease, box-shadow 120ms ease';
+    wrap.style.transition = 'transform 120ms, background 120ms, box-shadow 120ms';
     wrap.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
   } else {
     wrap.style.background = 'transparent';
@@ -214,9 +202,8 @@ function applyRowFocus(wrap, on = true) {
   }
 }
 
-/* ===================== Sonidos por año ===================== */
+/* ===================== Sonidos ===================== */
 const ROW_SOUNDS = {
-
   1885: new Audio('./1885.mp3'),
   1886: new Audio('./1886.mp3'),
   1887: new Audio('./1887.mp3'),
@@ -224,11 +211,11 @@ const ROW_SOUNDS = {
   1889: new Audio('./1889.mp3'),
   1890: new Audio('./1890.mp3')
 };
-Object.values(ROW_SOUNDS).forEach(a => a && (a.volume = 0.35));
-ROW_SOUNDS[1888].volume = 1.0; // o 1.0 para máximo volumen
 
+Object.values(ROW_SOUNDS).forEach(a => a.volume = 0.35);
+ROW_SOUNDS[1888].volume = 1.0;
 
-/* ===================== Estado global de selección ===================== */
+/* ===================== Estado global ===================== */
 let activeYear = null;
 let activeWrap = null;
 let activeSound = null;
@@ -242,23 +229,17 @@ function cancelClearTimer() {
 }
 
 function clearActive() {
-  // restaurar UI
   showAllContextTexts();
-
   const detail = document.getElementById('detailPanel');
   if (detail) {
     detail.innerHTML = '';
     detail.style.background = 'transparent';
-    detail.style.boxShadow = 'none';
     detail.style.display = 'none';
+    detail.style.boxShadow = 'none';
   }
-
   if (activeWrap) applyRowFocus(activeWrap, false);
   if (activeSound) { try { activeSound.pause(); activeSound.currentTime = 0; } catch {} }
-
-  activeYear = null;
-  activeWrap = null;
-  activeSound = null;
+  activeYear = activeWrap = activeSound = null;
   cancelClearTimer();
 }
 
@@ -269,81 +250,65 @@ function setActiveRow(wrap, year) {
   const contextoTexto = contextoMap.get(Number(year)) || '';
   const sound = ROW_SOUNDS[year];
 
-  // si ya hay una activa distinta, des-enfócala
-  if (activeWrap && activeWrap !== wrap) {
-    applyRowFocus(activeWrap, false);
-  }
+  if (activeWrap && activeWrap !== wrap) applyRowFocus(activeWrap, false);
   if (activeSound && activeSound !== sound) {
     try { activeSound.pause(); activeSound.currentTime = 0; } catch {}
   }
 
-  // foco visual + sonido
   applyRowFocus(wrap, true);
-  if (sound) { try { sound.currentTime = 0; sound.play().catch(()=>{}); } catch {} 
-}
 
-  // panel derecho visible con imágenes + contexto arriba
+  if (sound) {
+    try { sound.currentTime = 0; sound.play().catch(()=>{}); } catch {}
+  }
+
   if (detail) {
     detail.innerHTML = '';
     const urls = getImportantImagesByYear(year);
     detail.appendChild(buildDetailPanelContent(year, contextoTexto, urls));
     detail.style.background = '#e9ebecff';
-    detail.style.borderRadius = '8px';
+    detail.style.display = 'block';
     detail.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
-    detail.style.display = 'block'; // ⬅️ mostrar panel
   }
 
-  // ocultar TODAS las líneas de contexto en las filas (solo queda la del panel)
   hideAllContextTexts();
 
-
-  // guarda estado
   activeYear = year;
   activeWrap = wrap;
   activeSound = sound;
 }
 
-/* ===================== Crear una fila ===================== */
-function crearFila(colores, etiqueta = "", ano) {
-  const chipW = 16.5, chipH = 33, padTop = 0, padRight = 0;
-  const totalW = colores.length * chipW + padRight;
-  const totalH = chipH + padTop;
+/* ===================== Crear fila ===================== */
+function crearFila(colores, etiqueta, ano) {
+  const chipW = 16.5, chipH = 33;
+  const totalW = colores.length * chipW;
 
   const wrap = document.createElement("div");
-  wrap.style.margin = "8px 8px";
-  wrap.style.overflowX = "auto";
+  wrap.style.margin = "8px";
   wrap.style.display = "flex";
   wrap.style.gap = "10px";
   wrap.style.alignItems = "center";
-  wrap.style.padding = "8px 8px";
+  wrap.style.padding = "8px";
+  wrap.style.overflowX = "auto";
 
   const titulo = document.createElement("h3");
   titulo.textContent = ano;
   titulo.style.margin = "0 6px 0 0";
-  titulo.style.fontSize = "16px";
 
-  const key = Number(ano);
-  const contextoTexto = contextoMap.get(key) || "";
+  const contextoTexto = contextoMap.get(Number(ano)) || "";
 
   const svg = document.createElementNS(SVG_NS, "svg");
   svg.setAttribute("width", totalW);
-  svg.setAttribute("height", totalH);
-  svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
-  svg.setAttribute("preserveAspectRatio", "xMinYMin meet");
-  svg.style.display = "block";
-  svg.style.flex = "0 0 auto";
+  svg.setAttribute("height", chipH);
   svg.style.flexShrink = "0";
-  svg.style.minWidth = totalW + "px";
 
   let x = 0;
   colores.forEach(c => {
-    svg.appendChild(rect(c, x, padTop, chipW, chipH));
+    svg.appendChild(rect(c, x, 0, chipW, chipH));
     x += chipW;
   });
 
   const texto = document.createElement("p");
   texto.className = "context-text";
-  texto.dataset.year = String(ano);
   texto.textContent = contextoTexto;
   texto.style.margin = "0";
   texto.style.fontSize = "16px";
@@ -352,55 +317,42 @@ function crearFila(colores, etiqueta = "", ano) {
   wrap.appendChild(titulo);
   wrap.appendChild(svg);
   wrap.appendChild(texto);
-  // Guarda la altura original del párrafo para poder reservar el espacio
+
   requestAnimationFrame(() => {
-    texto.dataset.h = texto.offsetHeight; // px
+    texto.dataset.h = texto.offsetHeight;
   });
 
-
-  // Eventos: activar al entrar, programar limpieza al salir si el mouse NO va al panel
   wrap.addEventListener('mouseenter', () => setActiveRow(wrap, ano));
   wrap.addEventListener('mouseleave', (e) => {
-    // si el mouse se mueve hacia el panel derecho o hacia otra fila, no limpies aún
     const detail = document.getElementById('detailPanel');
     const to = e.relatedTarget;
-    const towardDetail = detail && detail.contains(to);
-    const towardRow = to && to.closest && to.closest('#rowsCol');
-    if (towardDetail || towardRow) return;
+    if (detail && detail.contains(to)) return;
+    if (to && to.closest && to.closest('#rowsCol')) return;
 
-    // si realmente saliste de ambas zonas, limpia con delay
     cancelClearTimer();
     clearTimer = setTimeout(() => {
-      // antes de limpiar, verifica que no volvimos a entrar a la fila o al panel
       const over = document.querySelector(':hover');
       const stillOverRow = over && over.closest && over.closest('#rowsCol');
       const stillOverDetail = over && detail && detail.contains(over);
-      if (!stillOverRow && !stillOverDetail) {
-        clearActive();
-      }
+      if (!stillOverRow && !stillOverDetail) clearActive();
     }, 250);
   });
 
   return wrap;
 }
 
-/* ===================== Listeners en panel derecho para cancelar limpieza ===================== */
+/* ===================== Guards panel derecho ===================== */
 function bindDetailPanelGuards() {
   const detail = document.getElementById('detailPanel');
   if (!detail) return;
-  detail.addEventListener('mouseenter', () => {
-    cancelClearTimer(); // mientras esté sobre el panel, no limpies
-  });
+  detail.addEventListener('mouseenter', cancelClearTimer);
   detail.addEventListener('mouseleave', () => {
-    // si al salir del panel no estamos sobre una fila, limpia con delay
     cancelClearTimer();
     clearTimer = setTimeout(() => {
       const over = document.querySelector(':hover');
       const stillOverRow = over && over.closest && over.closest('#rowsCol');
       const stillOverDetail = over && detail.contains(over);
-      if (!stillOverRow && !stillOverDetail) {
-        clearActive();
-      }
+      if (!stillOverRow && !stillOverDetail) clearActive();
     }, 250);
   });
 }
@@ -421,9 +373,11 @@ function ordenarPorColor_RYB(colors) {
     return (ka[0]-kb[0])||(ka[1]-kb[1])||(ka[2]-kb[2])||(ka[3]-kb[3]);
   });
 }
+
 function ordenarPorLuminosidad(colors) {
   return [...colors].sort((a, b) => hexToHSL(a).l - hexToHSL(b).l);
 }
+
 function ordenarPorSaturacion(colors) {
   return [...colors].sort((a, b) => hexToHSL(b).s - hexToHSL(a).s);
 }
@@ -443,25 +397,20 @@ function renderAniosCon(ordenador = null) {
     const fila = crearFila(cols, `Año ${y}`, y);
     rowsCol.appendChild(fila);
   });
-
-  // Estado “nada seleccionado”: ver todos los textos y panel oculto
   showAllContextTexts();
+
+  
   const detail = document.getElementById('detailPanel');
   if (detail) {
     detail.innerHTML = '';
-    detail.style.background = 'transparent';
-    detail.style.boxShadow = 'none';
     detail.style.display = 'none';
+    detail.style.background = 'transparent';
   }
 
-  // asegúrate de que el panel tenga los guards del hover
   bindDetailPanelGuards();
 }
 
-/* ===================== Enganche inicial y botones ===================== */
-renderAniosCon();
-
-// === Botones con estado "activo" persistente ===
+/* ===================== Botones ===================== */
 const buttons = [
   document.getElementById('btnValor'),
   document.getElementById('btnLum'),
