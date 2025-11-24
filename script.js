@@ -165,7 +165,7 @@ function buildDetailPanelContent(year, contextoTexto, urls) {
 function getImportantImagesByYear(year) {
   return data
     .filter(d => Number(d.Year) === Number(year) && (d.Show === true || d.Show === "True" || d.Show === "true"))
-    .map(d => d.Link)
+    .map(d => d.IMG)
     .filter(Boolean);
 }
 
@@ -399,7 +399,7 @@ function renderAniosCon(ordenador = null) {
   });
   showAllContextTexts();
 
-  
+
   const detail = document.getElementById('detailPanel');
   if (detail) {
     detail.innerHTML = '';
