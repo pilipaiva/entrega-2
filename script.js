@@ -437,3 +437,9 @@ buttons[2]?.addEventListener('click', () => {
   setActiveButton(buttons[2]);
 });
 
+
+document.getElementById("enableAudio").addEventListener("click", () => {
+  Object.values(ROW_SOUNDS).forEach(a => {
+    a.play().then(() => a.pause()).catch(()=>{});
+  });
+});
